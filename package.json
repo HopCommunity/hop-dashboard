@@ -10,14 +10,14 @@
     "url": "https://github.com/akveo/ngx-admin/issues"
   },
   "scripts": {
-    "ng": "ng",
+    "ng": "nx",
     "conventional-changelog": "conventional-changelog",
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "npm run build -- --prod --aot",
     "test": "ng test",
     "test:coverage": "rimraf coverage && npm run test -- --code-coverage",
-    "lint": "ng lint",
+    "lint": "nx workspace-lint && ng lint",
     "lint:fix": "ng lint ngx-admin-demo --fix",
     "lint:styles": "stylelint ./src/**/*.scss",
     "lint:ci": "npm run lint && npm run lint:styles",
@@ -27,7 +27,24 @@
     "docs:serve": "compodoc -p src/tsconfig.app.json -d docs -s",
     "prepush": "npm run lint:ci",
     "release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
-    "postinstall": "ngcc --properties es2015 es5 browser module main --first-only --create-ivy-entry-points --tsconfig \"./src/tsconfig.app.json\""
+    "postinstall": "ngcc --properties es2015 es5 browser module main --first-only --create-ivy-entry-points --tsconfig \"./src/tsconfig.app.json\" && node ./decorate-angular-cli.js",
+    "nx": "nx",
+    "affected:apps": "nx affected:apps",
+    "affected:libs": "nx affected:libs",
+    "affected:build": "nx affected:build",
+    "affected:e2e": "nx affected:e2e",
+    "affected:test": "nx affected:test",
+    "affected:lint": "nx affected:lint",
+    "affected:dep-graph": "nx affected:dep-graph",
+    "affected": "nx affected",
+    "format": "nx format:write",
+    "format:write": "nx format:write",
+    "format:check": "nx format:check",
+    "update": "ng update @nrwl/workspace",
+    "update:check": "ng update",
+    "dep-graph": "nx dep-graph",
+    "workspace-schematic": "nx workspace-schematic",
+    "help": "nx help"
   },
   "dependencies": {
     "@akveo/ng2-completer": "^9.0.1",
@@ -46,6 +63,7 @@
     "@nebular/eva-icons": "6.0.0",
     "@nebular/security": "6.0.0",
     "@nebular/theme": "6.0.0",
+    "@nrwl/workspace": "^10.2.0",
     "@swimlane/ngx-charts": "^16.0.0",
     "angular2-chartjs": "0.4.1",
     "bootstrap": "^4.5.2",
@@ -76,7 +94,8 @@
     "tslib": "^2.0.0",
     "typeface-exo": "0.0.22",
     "web-animations-js": "^2.3.2",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "@nrwl/angular": "10.2.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1000.6",
@@ -110,6 +129,8 @@
     "ts-node": "3.2.2",
     "tslint": "~6.1.0",
     "tslint-language-service": "^0.9.9",
-    "typescript": "3.9.7"
+    "typescript": "3.9.7",
+    "@nrwl/workspace": "10.2.0",
+    "prettier": "2.0.4"
   }
 }
