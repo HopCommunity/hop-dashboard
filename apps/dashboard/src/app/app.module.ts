@@ -20,6 +20,10 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { AuthModule } from '../../../../libs/auth/src/lib/auth.module';
+
+import config from '../config/config';
+import { HopAuthModule } from './hop-pages/auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,7 +43,17 @@ import {
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    AuthModule.forRoot({
+      Auth: {
+        mandatorySignIn: true,
+        region: config.cognito.REGION,
+        userPoolId: config.cognito.USER_POOL_ID,
+        userPoolWebClientId: config.cognito.APP_CLIENT_ID,
+      },
+    }),
+    HopAuthModule,
   ],
   bootstrap: [AppComponent],
+  exports: [],
 })
 export class AppModule {}

@@ -6,10 +6,10 @@ import { MENU_ITEMS } from './pages-menu';
   selector: 'dash-pages',
   styleUrls: ['pages.component.scss'],
   template: `
-    <ngx-one-column-layout>
+    <dash-one-column-layout>
       <nb-menu [items]="menu"></nb-menu>
       <router-outlet></router-outlet>
-    </ngx-one-column-layout>
+    </dash-one-column-layout>
   `,
 })
 export class PagesComponent {

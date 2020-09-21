@@ -7,8 +7,10 @@
     <div class="time-period caption">Last week:</div>
     <div class="h6">{{ value }}%</div>
   </div>
-  <ngx-earning-pie-chart [values]="earningPieChartData"
-                         (selectPie)="changeChartInfo($event)"
-                         [defaultSelectedCurrency]="defaultSelectedCurrency">
-  </ngx-earning-pie-chart>
+  <dash-earning-pie-chart
+    [values]="earningPieChartData"
+    (selectPie)="changeChartInfo($event)"
+    [defaultSelectedCurrency]="defaultSelectedCurrency"
+  >
+  </dash-earning-pie-chart>
 </nb-card-body>

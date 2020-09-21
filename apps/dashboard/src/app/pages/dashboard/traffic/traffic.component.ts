@@ -19,7 +19,7 @@ import { TrafficChartData } from '../../../@core/data/traffic-chart';
         </nb-select>
       </nb-card-header>
 
-      <ngx-traffic-chart [points]="trafficChartPoints"></ngx-traffic-chart>
+      <dash-traffic-chart [points]="trafficChartPoints"></dash-traffic-chart>
     </nb-card>
   `,
 })

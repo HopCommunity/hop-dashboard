@@ -1,7 +1,7 @@
 <nb-card>
   <nb-card-header>Google Maps with search</nb-card-header>
   <nb-card-body>
-    <ngx-search (positionChanged)="setPosition($event)"></ngx-search>
-    <ngx-map [searchedPosition]="searchedPosition"></ngx-map>
+    <dash-search (positionChanged)="setPosition($event)"></dash-search>
+    <dash-map [searchedPosition]="searchedPosition"></dash-map>
   </nb-card-body>
 </nb-card>

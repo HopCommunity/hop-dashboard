@@ -19,13 +19,13 @@ import { map } from 'rxjs/operators';
         [hidden]="isCollapsed()"
       >
       </nb-icon>
-      <ngx-room-selector
+      <dash-room-selector
         [class.dark-background]="isDarkTheme"
         (select)="select($event)"
-      ></ngx-room-selector>
-      <ngx-player
+      ></dash-room-selector>
+      <dash-player
         [collapsed]="isCollapsed() && breakpoint.width <= breakpoints.md"
-      ></ngx-player>
+      ></dash-player>
     </nb-card>
   `,
 })

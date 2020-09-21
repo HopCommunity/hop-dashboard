@@ -8,7 +8,8 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
-
+import { CognitoAuthGuard } from '../../../../libs/auth/src/lib/guards/cognito-auth/cognito-auth.guard';
+import { CognitoUnauthGuard } from '../../../../libs/auth/src/lib/guards/cognito-unauth/cognito-unauth.guard';
 export const routes: Routes = [
   {
     path: 'pages',
@@ -18,6 +19,7 @@ export const routes: Routes = [
   {
     path: 'auth',
     component: NbAuthComponent,
+    canActivate: [CognitoUnauthGuard],
     children: [
       {
         path: '',

@@ -1,0 +1,41 @@
+steps:
+  - label: ":tslint: Lint"
+    commands:
+      - NG_CLI_ANALYTICS=ci npm install
+      - npx ng lint
+
+  - label: ":jest: Tests"
+    commands:
+      - NG_CLI_ANALYTICS=ci npm install
+      - npx ng test
+
+  - label: ":typescript: Build"
+    commands:
+      - NG_CLI_ANALYTICS=ci npm install
+      - npx ng build auth --prod
+    artifact_paths: "dist/**/*"
+
+  - wait
+
+  - label: ":amazon-s3: Deploy DEV"
+    branches: "master"
+    commands:
+      - aws s3 sync --delete dist/apps/ s3://my.dev.newhop.life  --acl public-read
+    plugins:
+      - artifacts#v1.3.0:
+          download: ["dist/**/*"]
+      - cultureamp/aws-assume-role#v0.1.0:
+          role: "arn:aws:iam::033709224308:role/buildkite-agents-role"
+
+  - block: ":red_button: QA"
+    branches: "master"
+
+  - label: ":amazon-s3: Deploy QA"
+    branches: "master"
+    commands:
+      - aws s3 sync --delete dist/apps/ s3://my.qa.newhop.life  --acl public-read
+    plugins:
+      - artifacts#v1.3.0:
+          download: ["dist/**/*"]
+      - cultureamp/aws-assume-role#v0.1.0:
+          role: "arn:aws:iam::782857251318:role/buildkite-agents-role"

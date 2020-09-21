@@ -5,12 +5,13 @@
       <nb-list
         nbInfiniteList
         [threshold]="500"
-        (bottomThreshold)="loadNext(firstCard)">
+        (bottomThreshold)="loadNext(firstCard)"
+      >
         <nb-list-item *ngFor="let newsPost of firstCard.news">
-          <ngx-news-post [post]="newsPost"></ngx-news-post>
+          <dash-news-post [post]="newsPost"></dash-news-post>
         </nb-list-item>
         <nb-list-item *ngFor="let _ of firstCard.placeholders">
-          <ngx-news-post-placeholder></ngx-news-post-placeholder>
+          <dash-news-post-placeholder></dash-news-post-placeholder>
         </nb-list-item>
       </nb-list>
     </nb-card>
@@ -23,12 +24,13 @@
         nbInfiniteList
         listenWindowScroll
         [threshold]="500"
-        (bottomThreshold)="loadNext(secondCard)">
+        (bottomThreshold)="loadNext(secondCard)"
+      >
         <nb-list-item *ngFor="let newsPost of secondCard.news">
-          <ngx-news-post [post]="newsPost"></ngx-news-post>
+          <dash-news-post [post]="newsPost"></dash-news-post>
         </nb-list-item>
         <nb-list-item *ngFor="let _ of secondCard.placeholders">
-          <ngx-news-post-placeholder></ngx-news-post-placeholder>
+          <dash-news-post-placeholder></dash-news-post-placeholder>
         </nb-list-item>
       </nb-list>
     </nb-card>

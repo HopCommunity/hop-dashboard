@@ -2,6 +2,74 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
+    title: 'HOP PAGES',
+    group: true,
+  },
+  {
+    title: 'Admin',
+    icon: 'clipboard-outline',
+    children: [
+      {
+        title: 'Stepper',
+        link: '/pages/layout/stepper',
+      },
+    ],
+  },
+  {
+    title: 'Home',
+    icon: 'home-outline',
+    children: [
+      {
+        title: 'Stepper',
+        link: '/pages/layout/stepper',
+      },
+    ],
+  },
+  {
+    title: 'Perks',
+    icon: 'shopping-cart-outline',
+    children: [
+      {
+        title: 'Stepper',
+        link: '/pages/layout/stepper',
+      },
+    ],
+  },
+  {
+    title: 'People',
+    icon: 'people-outline',
+    children: [
+      {
+        title: 'Stepper',
+        link: '/pages/layout/stepper',
+      },
+    ],
+  },
+  {
+    title: 'Grid',
+    icon: 'grid-outline',
+    children: [
+      {
+        title: 'Stepper',
+        link: '/pages/layout/stepper',
+      },
+    ],
+  },
+  {
+    title: 'Settings',
+    icon: 'settings-2-outline',
+    children: [
+      {
+        title: 'Stepper',
+        link: '/pages/layout/stepper',
+      },
+    ],
+  },
+  {
+    title: 'NGX-ADMIN PAGES',
+    group: true,
+  },
+  {
     title: 'E-commerce',
     icon: 'shopping-cart-outline',
     link: '/pages/dashboard',
@@ -13,7 +81,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/iot-dashboard',
   },
   {
-    title: 'FEATURES',
+    title: 'NGX-ADMIN FEATURES',
     group: true,
   },
   {

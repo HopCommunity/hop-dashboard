@@ -5,7 +5,11 @@
     </nb-card-header>
 
     <nb-tabset fullWidth>
-      <nb-tab *ngFor="let year of listData" [tabTitle]="year.title" [active]="year.active">
+      <nb-tab
+        *ngFor="let year of listData"
+        [tabTitle]="year.title"
+        [active]="year.active"
+      >
         <nb-list>
           <nb-list-item *ngFor="let month of year.months">
             <span class="month">{{ month.month }}</span>
@@ -13,12 +17,15 @@
               <nb-icon
                 [class.down]="month.down"
                 [class.up]="!month.down"
-                [icon]="month.down ? 'arrow-down' : 'arrow-up'" pack="eva">
+                [icon]="month.down ? 'arrow-down' : 'arrow-up'"
+                pack="eva"
+              >
               </nb-icon>
               {{ month.delta }}
             </span>
             <span class="results">
-              {{ month.kWatts }} <span class="caption">kWh</span> / {{ month.cost }} <span class="caption">USD</span>
+              {{ month.kWatts }} <span class="caption">kWh</span> /
+              {{ month.cost }} <span class="caption">USD</span>
             </span>
           </nb-list-item>
         </nb-list>
@@ -38,10 +45,12 @@
       </span>
 
       <nb-select matRipple [(selected)]="type" class="type-select">
-        <nb-option matRipple *ngFor="let t of types" [value]="t">{{ t }}</nb-option>
+        <nb-option matRipple *ngFor="let t of types" [value]="t">{{
+          t
+        }}</nb-option>
       </nb-select>
     </nb-card-header>
 
-    <ngx-electricity-chart [data]="chartData"></ngx-electricity-chart>
+    <dash-electricity-chart [data]="chartData"></dash-electricity-chart>
   </nb-card>
 </nb-card>

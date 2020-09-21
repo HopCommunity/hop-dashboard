@@ -16,6 +16,9 @@
     },
     "dashboard": {
       "tags": []
+    },
+    "auth": {
+      "tags": []
     }
   }
 }
